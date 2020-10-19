@@ -1,0 +1,19 @@
+create table dbo.clientInfo(
+ClientId int identity(1,1),
+FirstName varchar(100),
+LastName varchar(100),
+MobileNumber varchar(50),
+IdNumber VARCHAR(25),
+PhysicalAddress varchar(150),
+
+)
+
+SELECT * FROM dbo.clientInfo;
+
+insert into dbo.clientInfo values(
+'Bokang',
+'Ditheto',
+'0112012010',
+'20212012012012',
+'87 Cape Town, Camps Bay '
+)
