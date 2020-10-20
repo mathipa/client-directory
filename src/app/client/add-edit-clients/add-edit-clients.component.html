@@ -1,1 +1,40 @@
-<p>add-edit-clients works!</p>
+<div class="form-froup row">
+
+    <label class="col-sm-2 col-form-label">First Name</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="FirstName"
+        placeholder="Enter First Name">
+    </div>
+
+    <label class="col-sm-2 col-form-label">Last Name</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="LastName"
+        placeholder="Enter First Name">
+    </div>
+
+    <label class="col-sm-2 col-form-label">Mobile Number</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="MobileNumber"
+        placeholder="Enter First Name">
+    </div>
+
+    <label class="col-sm-2 col-form-label">ID Number</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="IdNumber"
+        placeholder="Enter First Name">
+    </div>
+
+    <label class="col-sm-2 col-form-label">Physical Address</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="PhysicalAddress"
+        placeholder="Enter First Name">
+    </div>
+</div>
+
+<button (click)="addClient()" *ngIf="clientdata.ClientId==0" class="btn btn-primary">
+    Add Client
+</button>
+
+<button (click)="updateClient()" *ngIf="clientdata.ClientId!=0" class="btn btn-primary">
+    Update Client
+</button>
