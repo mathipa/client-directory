@@ -10,6 +10,8 @@ import { SharedService } from './shared.service';
 
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AboutAppComponent } from './about-app/about-app.component';
+import { AppFooterComponent } from './app-footer/app-footer.component';
 
 
 
@@ -18,7 +20,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     ClientComponent,
     ListClientsComponent,
-    AddEditClientsComponent
+    AddEditClientsComponent,
+    AboutAppComponent,
+    AppFooterComponent
   ],
   imports: [
     BrowserModule,

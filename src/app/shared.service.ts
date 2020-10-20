@@ -12,19 +12,19 @@ export class SharedService {
   constructor(private http:HttpClient) { }
 
   getClintList():Observable<any[]>{
-    return this.http.get<any>(this.APIURL+'/client');
+    return this.http.get<any>(this.APIURL+'/clientInfo');
   }
 
   addClient(val:any) {
-    return this.http.post(this.APIURL+'/Client', val);
+    return this.http.post(this.APIURL+'/clientInfo', val);
   }
 
   UpdateClient(val:any) {
-    return this.http.put(this.APIURL+'/Client', val);
+    return this.http.put(this.APIURL+'/clientInfo', val);
   }
 
   
   DeleteClient(val:any) {
-    return this.http.delete(this.APIURL+'/Client/' +val);
+    return this.http.delete(this.APIURL+'/clientInfo/' +val);
   }
 }
