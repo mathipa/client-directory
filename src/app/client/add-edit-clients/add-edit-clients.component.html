@@ -40,7 +40,9 @@
                     <span class="text-danger" *ngIf="clientFormControl.idNumber.touched && clientFormControl.idNumber.errors?.required">
                        ID number is required.
                     </span>
-                    
+                    <div *ngIf="clientFormControl.idNumber.errors?.maxlength"> 
+                       ID Number can be max 13 characters long.
+                   </div> 
                      <span class="text-danger" *ngIf="clientFormControl.idNumber.touched && clientFormControl.idNumber.errors?.checksanumber">
                         Please enter a valid South African ID Number.
                      </span>

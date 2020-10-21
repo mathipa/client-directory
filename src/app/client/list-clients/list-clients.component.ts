@@ -65,19 +65,4 @@ export class ListClientsComponent implements OnInit {
     });
   }
 
-
-  FilterFn(){
-    var ClientIdFilter = this.ClientIdFilter;
-    var ClientNameFilter = this.ClientFilterName;
-
-    this.ClientList = this.ClientListWithoutFilter.filter(function (el){
-        return el.ClientId.toString().toLowerCase().includes(
-          ClientIdFilter.toString().trim().toLowerCase()
-        )&&
-        el.FirstName.toString().toLowerCase().includes(
-          ClientNameFilter.toString().trim().toLowerCase()
-        )
-    });
-  }
-
 }
