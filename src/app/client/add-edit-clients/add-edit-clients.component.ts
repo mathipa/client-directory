@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SharedService } from 'src/app/shared.service';
+import { AppHelperValidators } from 'src/app/shared/AppHelper/app-helper.validators';
 
 @Component({
   selector: 'add-edit-clients',
@@ -7,8 +9,10 @@ import { SharedService } from 'src/app/shared.service';
   styleUrls: ['./add-edit-clients.component.scss']
 })
 export class AddEditClientsComponent implements OnInit {
+  clientForm: FormGroup;
+  submitted = false;
 
-  constructor(private service: SharedService) { }
+  constructor(private service: SharedService, private fb: FormBuilder) { }
 
   @Input()clientdata: any;
   ClientId: string;
@@ -19,11 +23,6 @@ export class AddEditClientsComponent implements OnInit {
   PhysicalAddress: string;
 
   ngOnInit(): void {
-    this.loadClients();
-  }
-
-
-  loadClients (){
     this.ClientId = this.clientdata.ClientId;
     this.FirstName = this.clientdata.FirstName;
     this.LastName = this.clientdata.LastName;
@@ -31,19 +30,35 @@ export class AddEditClientsComponent implements OnInit {
     this.IdNumber = this.clientdata.IdNumber;
     this.PhysicalAddress = this.clientdata.PhysicalAddress;
 
-  }
-  addClient(){
-    var val = {
-      ClientId:this.ClientId,
-      FirstName:this.FirstName,
-      LastName:this.LastName,
-      MobileNumber: this.MobileNumber,
-      IdNumber: this.IdNumber,
-      PhysicalAddress: this.PhysicalAddress
-    };
-    this.service.addClient(val).subscribe(res=>{
-      alert(res.toString());
+    this.clientForm = this.fb.group({
+      firstName: ['', Validators.required],
+      lastName: ['', [Validators.required]],
+      mobileNumber: ['null', [Validators.required]],
+      idNumber: ['', [Validators.required, AppHelperValidators.checksanumber]],
+      physicalAddress: ['', [Validators.required]],
     });
+
+  }
+
+  get clientFormControl() {
+    return this.clientForm.controls;
+  }
+
+  addClient(){
+    this.submitted=true;
+    if(this.clientForm.valid) {
+      var val = {
+        ClientId:this.ClientId,
+        FirstName:this.FirstName,
+        LastName:this.LastName,
+        MobileNumber: this.MobileNumber,
+        IdNumber: this.IdNumber,
+        PhysicalAddress: this.PhysicalAddress
+      };
+      this.service.addClient(val).subscribe(res=>{
+        alert(res.toString());
+      });
+    }
   }
 
   updateClient(){
@@ -58,5 +73,4 @@ export class AddEditClientsComponent implements OnInit {
     alert(res.toString());
     });
   }
-
 }

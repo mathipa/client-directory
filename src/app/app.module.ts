@@ -10,9 +10,9 @@ import { SharedService } from './shared.service';
 
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AboutAppComponent } from './about-app/about-app.component';
 import { AppFooterComponent } from './app-footer/app-footer.component';
-
 
 
 @NgModule({
@@ -22,14 +22,15 @@ import { AppFooterComponent } from './app-footer/app-footer.component';
     ListClientsComponent,
     AddEditClientsComponent,
     AboutAppComponent,
-    AppFooterComponent
+    AppFooterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2SearchPipeModule,
   ],
   providers: [SharedService],
   bootstrap: [AppComponent]

@@ -1,40 +1,65 @@
-<div class="form-froup row">
+<div class="row">
+    <div class="col-md-12 mx-auto">
+        <div class="card-body">
+            <form class="form" [formGroup]="clientForm" #clientF="ngForm">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" 
+                    formControlName="firstName"
+                    [(ngModel)]="FirstName">
+                    <span class="text-danger"
+                        *ngIf="(clientFormControl.firstName.touched || submitted) && clientFormControl.firstName.errors?.required">
+                       First Name is required.
+                    </span>
+                </div>
 
-    <label class="col-sm-2 col-form-label">First Name</label>
-    <div class="col-sm-10">
-        <input type="text" class="form-control" [(ngModel)]="FirstName"
-        placeholder="Enter First Name">
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" class="form-control" 
+                    formControlName="lastName"
+                    [(ngModel)]="LastName">
+                    <span class="text-danger"
+                        *ngIf="(clientFormControl.lastName.touched || submitted) && clientFormControl.lastName.errors?.required">
+                        Last Name is required.
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <label>Mobile Number</label>
+                    <input type="text" class="form-control"
+                     formControlName="mobileNumber"
+                     [(ngModel)]="MobileNumber">
+                </div>
+
+                <div class="form-group">
+                    <label>ID Number</label>
+                    <input type="number" class="form-control" 
+                    formControlName="idNumber"
+                    maxlength="13"
+                    [(ngModel)]="IdNumber">
+                    <span class="text-danger" *ngIf="clientFormControl.idNumber.touched && clientFormControl.idNumber.errors?.required">
+                       ID number is required.
+                    </span>
+                    
+                     <span class="text-danger" *ngIf="clientFormControl.idNumber.touched && clientFormControl.idNumber.errors?.checksanumber">
+                        Please enter a valid South African ID Number.
+                     </span>
+                </div>
+
+                <div class="form-group">
+                    <label>Phyical Address</label>
+                    <textarea
+                     class="form-control"
+                    [(ngModel)]="PhysicalAddress"
+                    formControlName="physicalAddress">
+                    </textarea>
+                </div>
+
+                <button (click)="addClient()"  class="btn btn-primary" [disabled]="!clientF.form.valid || submitted">
+                    Add Client
+                </button>
+
+            </form>
+        </div>
     </div>
-
-    <label class="col-sm-2 col-form-label">Last Name</label>
-    <div class="col-sm-10">
-        <input type="text" class="form-control" [(ngModel)]="LastName"
-        placeholder="Enter First Name">
     </div>
-
-    <label class="col-sm-2 col-form-label">Mobile Number</label>
-    <div class="col-sm-10">
-        <input type="text" class="form-control" [(ngModel)]="MobileNumber"
-        placeholder="Enter First Name">
-    </div>
-
-    <label class="col-sm-2 col-form-label">ID Number</label>
-    <div class="col-sm-10">
-        <input type="text" class="form-control" [(ngModel)]="IdNumber"
-        placeholder="Enter First Name">
-    </div>
-
-    <label class="col-sm-2 col-form-label">Physical Address</label>
-    <div class="col-sm-10">
-        <input type="text" class="form-control" [(ngModel)]="PhysicalAddress"
-        placeholder="Enter First Name">
-    </div>
-</div>
-
-<button (click)="addClient()" *ngIf="clientdata.ClientId==0" class="btn btn-primary">
-    Add Client
-</button>
-
-<button (click)="updateClient()" *ngIf="clientdata.ClientId!=0" class="btn btn-primary">
-    Update Client
-</button>

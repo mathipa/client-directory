@@ -11,6 +11,7 @@ export class ListClientsComponent implements OnInit {
   constructor(private service: SharedService) { }
 
   ClientList: any[];
+  searchedKeyword: string;
 
   ModalTitle: string;
   ActivateAddEditClient:boolean=false;
