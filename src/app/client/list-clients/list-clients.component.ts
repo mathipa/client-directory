@@ -11,8 +11,6 @@ export class ListClientsComponent implements OnInit {
   constructor(private service: SharedService) { }
 
   ClientList: any[];
-
-
   searchedKeyword: string;
 
   ModalTitle: string;
@@ -53,7 +51,6 @@ export class ListClientsComponent implements OnInit {
         this.getClientList();
       });
     }
-  
   }
 
   closeModal() {
@@ -66,5 +63,4 @@ export class ListClientsComponent implements OnInit {
       this.ClientList = data;
     });
   }
-
 }
