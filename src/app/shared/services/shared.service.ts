@@ -27,4 +27,6 @@ export class SharedService {
   DeleteClient(val:any) {
     return this.http.delete(this.APIURL+'/clientInfo/' +val);
   }
+
+
 }

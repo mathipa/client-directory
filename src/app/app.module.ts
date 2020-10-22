@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { ClientComponent } from './client/client.component';
 import { ListClientsComponent } from './client/list-clients/list-clients.component';
 import { AddEditClientsComponent } from './client/add-edit-clients/add-edit-clients.component';
-import { SharedService } from './shared.service';
+import { SharedService } from './shared/services/shared.service';
 
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';

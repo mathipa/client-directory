@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedService } from 'src/app/shared.service';
+import { SharedService } from 'src/app/shared/services/shared.service';
 
 @Component({
   selector: 'list-clients',
@@ -11,6 +11,8 @@ export class ListClientsComponent implements OnInit {
   constructor(private service: SharedService) { }
 
   ClientList: any[];
+
+
   searchedKeyword: string;
 
   ModalTitle: string;

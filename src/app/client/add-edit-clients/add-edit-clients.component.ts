@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SharedService } from 'src/app/shared.service';
+import { SharedService } from 'src/app/shared/services/shared.service';
 import { AppHelperValidators } from 'src/app/shared/AppHelper/app-helper.validators';
 
 @Component({
@@ -23,20 +23,19 @@ export class AddEditClientsComponent implements OnInit {
   PhysicalAddress: string;
 
   ngOnInit(): void {
-    // this.ClientId = this.clientdata.ClientId;
-    // this.FirstName = this.clientdata.FirstName;
-    // this.LastName = this.clientdata.LastName;
-    // this.MobileNumber = this.clientdata.MobileNumber;
-    // this.IdNumber = this.clientdata.IdNumber;
-    // this.PhysicalAddress = this.clientdata.PhysicalAddress;
-
-
     this.ClientId = this.clientdata.ClientId;
-    this.FirstName = 'Mat';
-    this.LastName = 'Lego';
-    this.MobileNumber = '0765214236';
-    this.IdNumber = '8707245453081';
-    this.PhysicalAddress = '12 Rita road maspa';
+    this.FirstName = this.clientdata.FirstName;
+    this.LastName = this.clientdata.LastName;
+    this.MobileNumber = this.clientdata.MobileNumber;
+    this.IdNumber = this.clientdata.IdNumber;
+    this.PhysicalAddress = this.clientdata.PhysicalAddress;
+
+    // this.ClientId = this.clientdata.ClientId;
+    // this.FirstName = 'Mathipa';
+    // this.LastName = 'Makgato';
+    // this.MobileNumber = '0764631679';
+    // this.IdNumber = '8707245453081';
+    // this.PhysicalAddress = '12 Rita road Kaalkop';
 
     this.clientForm = this.fb.group({
       firstName: ['', Validators.required],
